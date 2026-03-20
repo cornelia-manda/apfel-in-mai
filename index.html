@@ -55,6 +55,7 @@
 
         nav a:hover { color: white !important; cursor: pointer; }
 
+        /* Highlights 'Projects' as active parent */
         nav > ul > li:nth-child(3) > a { color: white !important; }
 
         /* --- Dropdown Menu Styles --- */
@@ -75,6 +76,7 @@
             font-weight: 400;
         }
 
+        /* Highlights 'Videography' in white for this specific page */
         .dropdown-content li:nth-child(1) a {
             color: white !important;
         }
@@ -82,7 +84,7 @@
         .dropdown-content a:hover { background-color: #E0E2DF; color: #816B6E !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (WHITE) --- */
         .project-hero {
             padding: 60px 80px 20px 80px; background-color: white;
             border-bottom: 1px solid #DDBDBE;
@@ -107,7 +109,7 @@
         }
         .hero-meta { color: #655C5B; font-style: italic; margin-bottom: 20px; }
 
-        /* --- Carousel Components --- */
+        /* --- Carousel Logic --- */
         .project-main-media { 
             position: relative;
             width: 100%; 
@@ -116,11 +118,6 @@
             border: 10px solid white; 
             box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); 
             overflow: hidden;
-        }
-
-        .carousel-slides {
-            width: 100%;
-            height: 100%;
         }
 
         .mySlides {
@@ -135,7 +132,6 @@
             object-fit: cover;
         }
 
-        /* Next & previous buttons */
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -150,17 +146,18 @@
             border-radius: 0 3px 3px 0;
             user-select: none;
             background-color: rgba(101, 92, 91, 0.3);
+            z-index: 10;
         }
 
         .next { right: 0; border-radius: 3px 0 0 3px; }
         .prev:hover, .next:hover { background-color: #816B6E; }
 
-        /* Dots/bullets/indicators */
         .dot-container {
             position: absolute;
             bottom: 20px;
             width: 100%;
             text-align: center;
+            z-index: 10;
         }
 
         .dot {
@@ -187,7 +184,7 @@
         .section-body ul { padding-left: 20px; color: #5D4F51; font-family: "Roboto", sans-serif; }
         .section-body li { margin-bottom: 10px; }
 
-        /* --- Watch Section --- */
+        /* --- Centered Watch Section (GRAY) --- */
         .watch-container { 
             margin-top: 30px; 
             display: flex;
@@ -275,7 +272,7 @@
                         <span>Short Film</span>
                     </div>
                     <h1>Äpfel im Mai</h1>
-                    <p class="hero-meta">Director / Screenwriter / Editor</p>
+                    <p class="hero-meta">Director / Screenwriter / Editor / Lead Actress</p>
                     <p>An award-winning short film created for my German class during my first year at the University of Waterloo, told strictly using class-taught vocabulary.</p>
                 </div>
 
@@ -347,7 +344,7 @@
         <section class="content-section section-white">
             <div class="section-title"><h2>Outcome</h2></div>
             <div class="section-body">
-                <p>The film highlights my ability to lead a team and maintain high production standards under specific creative constraints. This project was recognized for its storytelling and technical execution, resulting in my <strong>second Golden Boar Award</strong> win at the University of Waterloo during my first year.</p>
+                <p>The film highlights my ability to lead a team and maintain high production standards under specific creative and linguistic constraints. The project was recognized for its storytelling and technical execution, resulting in my <strong>second Golden Boar Award</strong> win at the University of Waterloo during my first year.</p>
             </div>
         </section>
 
