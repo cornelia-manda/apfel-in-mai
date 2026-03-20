@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelia Manda | Project | Detailed View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Reset & Typography */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px; color: #333;
+            background-color: #E0E2DF; line-height: 1.6;
+        }
+
+        /* Enforcing Playfair Display for headings and navigation links */
+        h1, h2, h3, a, th { font-family: "Playfair Display", serif; }
+
+        /* --- Link Reset --- */
+        a, a:visited, a:active {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; background-color: #E0E2DF; min-height: 100vh; }
+
+        /* Navigation Area */
+        header {
+            display: grid; grid-template-columns: 30% 70%;
+            align-items: center; background-color: #DDBDBE;
+            padding: 17px 60px; position: relative; z-index: 1000;
+        }
+
+        .logo { 
+            font-family: "Playfair Display", serif;
+            font-size: 1.5em; 
+            letter-spacing: 1px; 
+            color: #655C5B; 
+        }
+
+        nav ul { list-style: none; padding: 0; margin: 0; text-align: right; }
+        nav li { display: inline-block; margin-left: 40px; position: relative; vertical-align: middle; }
+        
+        nav a { 
+            color: #655C5B !important; 
+            font-size: 1.1em; 
+            display: inline-block; 
+            padding: 10px 0; 
+        }
+
+        nav a:hover { color: white !important; cursor: pointer; }
+
+        /* Highlights 'Projects' as active parent category */
+        nav > ul > li:nth-child(3) > a { color: white !important; }
+
+        /* --- Dropdown Menu Styles --- */
+        .dropdown-content {
+            display: none; position: absolute; background-color: #DDBDBE;
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100; text-align: left; padding: 10px 0; top: 100%; left: 0; margin-top: -5px;
+        }
+
+        .dropdown-content li { display: block; margin: 0; }
+
+        .dropdown-content a, .dropdown-content a:visited { 
+            color: #655C5B !important; 
+            padding: 12px 20px; 
+            display: block; 
+            font-size: 1.1em; 
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+        }
+
+        /* FIX: Specifically highlights 'Videography' in white for this page */
+        .dropdown-content li:nth-child(1) a {
+            color: white !important;
+        }
+
+        .dropdown-content a:hover { background-color: #E0E2DF; color: #816B6E !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- Hero Section --- */
+        .project-hero {
+            padding: 60px 80px 20px 80px; background-color: white;
+            border-bottom: 1px solid #DDBDBE;
+        }
+
+        .back-button {
+            display: inline-block; padding: 10px 25px; background-color: #C99B9B;
+            color: white !important; font-weight: bold; margin-bottom: 30px;
+            font-family: "Playfair Display", serif;
+        }
+        .back-button:hover { background-color: #816B6E; transform: rotate(-2deg); }
+
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .hero-text h1 { font-size: 4em; color: #816B6E; margin: 0 0 15px 0; text-transform: uppercase; line-height: 1; }
+        
+        .project-tags { margin-bottom: 20px; }
+        .project-tags span {
+            display: inline-block; padding: 5px 15px; background-color: #F5F5F5;
+            color: #C99B9B; font-weight: 900; font-size: 0.8em;
+            text-transform: uppercase; margin-right: 10px; border-radius: 20px;
+            font-family: "Roboto", sans-serif;
+        }
+        .hero-meta { color: #655C5B; font-style: italic; margin-bottom: 20px; }
+
+        /* --- Deep Description Sections --- */
+        .content-section { padding: 60px 80px; display: grid; grid-template-columns: 30% 70%; gap: 50px; }
+        .section-light { background-color: #E0E2DF; }
+        .section-white { background-color: white; }
+
+        .section-title h2 { color: #816B6E; font-size: 2.2em; margin: 0; text-transform: uppercase; border-left: 5px solid #C99B9B; padding-left: 20px; }
+        
+        .section-body p { margin-bottom: 20px; color: #5D4F51; font-size: 1.1em; font-family: "Roboto", sans-serif; }
+        .section-body ul { padding-left: 20px; color: #5D4F51; font-family: "Roboto", sans-serif; }
+        .section-body li { margin-bottom: 10px; }
+
+        .project-main-media { width: 100%; height: 500px; background-color: #000; display: block; border: 10px solid white; box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); }
+        .project-main-media img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px; color: #655C5B; font-size: 0.9em; border-top: 1px solid #DDBDBE; }
+        .footer-table-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
+        .footer-table { border-collapse: collapse; text-align: left; }
+        .footer-table th { color: #816B6E; font-size: 1.1em; padding: 5px 10px 5px 0; vertical-align: middle; }
+        .footer-table th:not(:first-child) { padding-left: 30px; }
+        .footer-table td { padding: 5px 0; font-family: "Roboto", sans-serif; white-space: nowrap; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Cornelia Manda</div>
+            <nav>
+                <ul>
+                    <li><a href="https://cornelia-manda.github.io/home/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/portfolio/">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="https://cornelia-manda.github.io/projects/">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="https://cornelia-manda.github.io/videography/">Videography</a></li>
+                            <li><a href="#">Branding</a></li>
+                            <li><a href="#">Web and App</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://cornelia-manda.github.io/contact-aboutme/">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="project-hero">
+            <a href="https://cornelia-manda.github.io/videography/" class="back-button">← Back to Videography</a>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="project-tags">
+                        <span>Videography</span>
+                        <span>Short Film</span>
+                    </div>
+                    <h1>Äpfel im Mai</h1>
+                    <p class="hero-meta">Screenwriter / Director / Editor</p>
+                    <p>An award-winning short film exploring themes through strictly taught class vocabulary, winning the Golden Boar Award.</p>
+                </div>
+                <div class="project-main-media">
+                    <img src="Ger102-film.png" alt="Project Screenshot">
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-white">
+            <div class="section-title"><h2>Project Overview</h2></div>
+            <div class="section-body">
+                <p>This section provides a high-level summary of the project goals. For "Äpfel im Mai," the challenge was to tell a compelling story using only the specific German vocabulary taught in the GER102 course.</p>
+            </div>
+        </section>
+
+        <section class="content-section section-light">
+            <div class="section-title"><h2>My Role</h2></div>
+            <div class="section-body">
+                <p>I led the development from concept to final cut. This included the entire pipeline of production.</p>
+                <ul>
+                    <li><strong>Creative Direction:</strong> Planning the visual tone and narrative structure.</li>
+                    <li><strong>Scriptwriting:</strong> Crafting the dialogue around course-specific constraints.</li>
+                    <li><strong>Editing:</strong> Handling the pacing and color grading to build a clear viewer experience.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section section-white">
+            <div class="section-title"><h2>Process & Thinking</h2></div>
+            <div class="section-body">
+                <p>Describe your approach to the creative challenge. How did you think through the limitations?.</p>
+                <p>Similar to documenting how the rink feels like home, I focused on creating an immersive portrait through specific visual atmospheric choices.</p>
+            </div>
+        </section>
+
+        <section class="content-section section-light">
+            <div class="section-title"><h2>Outcome</h2></div>
+            <div class="section-body">
+                <p>The final project strengthened my understanding of storytelling hierarchy and intentional design. It culminated in receiving the Golden Boar Award at the University of Waterloo.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-table-wrapper">
+                <table class="footer-table">
+                    <tr>
+                        <th>Email:</th>
+                        <td><a href="mailto:cmanda@uwaterloo.ca">cmanda@uwaterloo.ca</a></td>
+                        <th>School:</th>
+                        <td><a href="https://uwaterloo.ca/stratford-school-of-interaction-design-and-business/global-business-and-digital-arts" target="_blank">University of Waterloo</a></td>
+                        <th>Location:</th>
+                        <td>Kitchener-Waterloo, Ontario</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="copyright">&copy; 2026 Cornelia Manda. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
